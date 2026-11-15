@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Horizonte Digital — Premium B2B AI Brand Design System
+   Dark cosmic horizon aesthetic with orange ember accents.
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 0 0% 4%;            /* Pitch dark */
+    --foreground: 30 20% 96%;         /* Warm white */
+
+    --card: 0 0% 6%;
+    --card-foreground: 30 15% 95%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 30 15% 95%;
+
+    /* Brand: ember orange — the horizon glow */
+    --primary: 22 96% 56%;
+    --primary-foreground: 0 0% 6%;
+    --primary-glow: 28 100% 64%;
+    --primary-deep: 16 88% 42%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 30 10% 92%;
+
+    --muted: 0 0% 9%;
+    --muted-foreground: 30 6% 64%;
+
+    --accent: 22 96% 56%;
+    --accent-foreground: 0 0% 6%;
+
+    --destructive: 0 70% 52%;
+    --destructive-foreground: 30 20% 96%;
+
+    --border: 30 10% 14%;
+    --input: 30 10% 14%;
+    --ring: 22 96% 56%;
+
+    --radius: 1rem;
+
+    /* Brand-specific tokens */
+    --graphite: 0 0% 12%;
+    --graphite-soft: 0 0% 16%;
+    --hairline: 30 10% 18%;
+
+    /* Gradients */
+    --gradient-horizon: radial-gradient(ellipse 80% 60% at 50% 100%, hsl(22 96% 56% / 0.35), transparent 70%);
+    --gradient-arc: linear-gradient(115deg, transparent 30%, hsl(22 96% 56% / 0.9) 50%, hsl(28 100% 70% / 0.4) 55%, transparent 70%);
+    --gradient-ember: linear-gradient(135deg, hsl(22 96% 56%), hsl(16 88% 42%));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(22 96% 56% / 0.25), transparent 60%);
+    --gradient-text: linear-gradient(180deg, hsl(30 20% 98%), hsl(30 10% 70%));
+    --gradient-card: linear-gradient(160deg, hsl(0 0% 8%), hsl(0 0% 5%));
+
+    /* Shadows */
+    --shadow-ember: 0 20px 60px -20px hsl(22 96% 56% / 0.45);
+    --shadow-elevated: 0 30px 80px -30px hsl(0 0% 0% / 0.8), 0 0 0 1px hsl(30 10% 14%);
+    --shadow-glow-sm: 0 0 30px hsl(22 96% 56% / 0.35);
+
+    /* Motion */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 30 10% 90%;
+    --sidebar-primary: 22 96% 56%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 30 10% 92%;
+    --sidebar-border: 30 10% 14%;
+    --sidebar-ring: 22 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-ember {
+    background: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--primary)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    background: linear-gradient(160deg, hsl(0 0% 8% / 0.85), hsl(0 0% 5% / 0.85));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--hairline));
+  }
+
+  .hairline {
+    border: 1px solid hsl(var(--hairline));
+  }
+
+  .ember-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--primary) / 0.25);
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32;
+  }
+
+  .container-x {
+    @apply mx-auto max-w-7xl px-6 md:px-10;
+  }
+}
+
+@layer utilities {
+  .bg-grid-faint {
+    background-image:
+      linear-gradient(hsl(var(--hairline) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--hairline) / 0.5) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-radial-ember {
+    background: radial-gradient(ellipse at 50% 0%, hsl(var(--primary) / 0.18), transparent 60%);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-ember {
+    animation: pulse-ember 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.9s var(--ease-out-expo) both;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ember {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Static catalog theme is scoped to keep the institutional site unchanged. */
+.movie-app {
+  --background: 0 0% 4%;
+  --foreground: 240 5% 96%;
+  --card: 0 0% 7%;
+  --popover: 0 0% 7%;
+  --muted-foreground: 240 5% 65%;
+  --hairline: 0 0% 18%;
+  --primary: 25 95% 53%;
+  --primary-glow: 27 96% 61%;
+  --primary-deep: 21 90% 48%;
+  --gradient-ember: linear-gradient(110deg, hsl(var(--primary-glow)), hsl(var(--primary)), hsl(var(--primary-deep)));
+  --movie-grid: linear-gradient(hsl(var(--foreground) / .04) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / .04) 1px, transparent 1px);
+  --movie-light: linear-gradient(155deg, transparent 15%, hsl(var(--primary) / .1) 34%, transparent 50%);
+  background-image: var(--movie-grid);
+  background-size: 64px 64px;
+}
+.movie-app h1, .movie-app h2, .movie-app h3 { letter-spacing: 0; }
+.movie-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--movie-light);
+  pointer-events: none;
+}
+.movie-poster { aspect-ratio: 2 / 3; overflow: hidden; background: hsl(var(--secondary)); }
+.movie-tag { padding: 5px 10px; border: 1px solid hsl(var(--hairline)); border-radius: 999px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: hsl(var(--muted-foreground)); }
+.movie-mark { position: relative; width: 24px; height: 24px; border: 2px solid hsl(var(--primary)); border-radius: 50%; }
+.movie-mark::after { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: hsl(var(--primary)); }
+.movie-search:focus-within { border-color: hsl(var(--primary)); box-shadow: 0 0 0 2px hsl(var(--primary) / .15); }
+@media (prefers-reduced-motion: reduce) {
+  .movie-app *, .movie-app *::before, .movie-app *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,20 @@
+# Segredos — NUNCA enviar para o GitHub
+.env
+
+# Dados do TMDB (gerados pelo pipeline; não são redistribuídos aqui)
+dados/
+site/public/dados/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Site
+site/node_modules/
+site/dist/
+
+# Sistema
+.DS_Store
+Thumbs.db
